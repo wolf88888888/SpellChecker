@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  db:
+    image: spell-checker-db
+    restart: always
+    build:
+      cache_from:
+        - spell-checker-db
+      context: ./db
+    env_file: 
+      - .env
+    networks:
+      - network
+    ports:
+      - "5432:5432"
+networks:
+  network:
+
+
